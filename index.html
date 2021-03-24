@@ -4,6 +4,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
   <script type="text/javascript">
 	var x = document.getElementById("demo");
+	var accelerometer = new Accelerometer({frequency:60});
+	  
 	function getLocation() {
  	if (navigator.geolocation) {
     	navigator.geolocation.getCurrentPosition(showPosition);
@@ -17,6 +19,7 @@
   	"<br>Longitude: " + position.coords.longitude + "<br>Speed: " + position.coords.speed +
 	"<br>Orientation: " +position.coords.heading;
 	}
+	 
   </script>
 </head>
 <body>
