@@ -10,28 +10,26 @@
     
 		</nav>
 		<div class="container">
-    		<div class="blurb">
-		
-        		<h1>Hi there, I'm DORA!</h1>
-				<script>
-				var x = document.getElementById("demo");
-
-				function getLocation() {
-  					if (navigator.geolocation) {
-    					navigator.geolocation.getCurrentPosition(showPosition);
- 					}
-					else {
-    					x.innerHTML = "Geolocation is not supported by this browser.";
-  					}
-				}
-
-				function showPosition(position) {
-  				x.innerHTML = "Latitude: " + position.coords.latitude +
-  				"<br>Longitude: " + position.coords.longitude + "<br>Speed: "+position.coords.speed;
-				}
-				</script>
+    		<div class="blurb">	
+        	<h1>Hi there, I'm DORA!</h1>
     		</div><!-- /.blurb -->
 		</div><!-- /.container -->
+		
+		<script>
+		var x = document.getElementById("demo");
+		function getLocation() {
+			if (navigator.geolocation) {
+  			navigator.geolocation.getCurrentPosition(showPosition);
+ 			}
+			else {
+    			x.innerHTML = "Geolocation is not supported by this browser.";
+  			}
+		}
+		function showPosition(position) {
+  		x.innerHTML = "Latitude: " + position.coords.latitude +
+  		"<br>Longitude: " + position.coords.longitude + "<br>Speed: "+position.coords.speed;
+		}
+		</script>
 		
 		<div class="demo"> HERE </div>
 		
