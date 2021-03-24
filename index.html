@@ -1,33 +1,28 @@
-<!DOCTYPE html>
 <html>
-	<head>
-		<title>TESTING TRC3000</title>
-		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
-		
-		<script>
-		var x = document.getElementById("demo");
-		function getLocation() {
-			if (navigator.geolocation) {
-  			navigator.geolocation.getCurrentPosition(showPosition);
- 			}
-			else {
-    			x.innerHTML = "Geolocation is not supported by this browser.";
-  			}
-		}
-		function showPosition(position) {
-  		x.innerHTML = "Latitude: " + position.coords.latitude +
-  		"<br>Longitude: " + position.coords.longitude + "<br>Speed: "+position.coords.speed;
-		}
-		</script>
-		
-	</head>
-	<body>
-		<div class="container">
-    		<div class="blurb">	
-        	<h1>Hi there, I'm DORA!</h1>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<div class="demo"> HERE </div>	
-	</body>
+<head>
+  <title>Extract Sensor</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+	var x = document.getElementById("demo");
+	function getLocation() {
+ 	if (navigator.geolocation) {
+    	navigator.geolocation.getCurrentPosition(showPosition);
+  	} else {
+   	x.innerHTML = "Geolocation is not supported by this browser.";
+  	}
+	}
+
+	function showPosition(position) {
+ 	x.innerHTML = "Latitude: " + position.coords.latitude +
+  	"<br>Longitude: " + position.coords.longitude;
+	}
+  </script>
+</head>
+<body>
+	<h1>TRC3000</h1>
+	<div id="demo">Loading...</div> 
+	<script>
+		getLocation();
+	</script>
+</body>
 </html>
