@@ -8,12 +8,12 @@
  	if (navigator.geolocation) {
     	navigator.geolocation.getCurrentPosition(showPosition);
   	} else {
-   	x.innerHTML = "Geolocation is not supported by this browser.";
+   	demo.innerHTML = "Geolocation is not supported by this browser.";
   	}
 	}
 
 	function showPosition(position) {
- 	x.innerHTML = "Latitude: " + position.coords.latitude +
+ 	demo.innerHTML = "Latitude: " + position.coords.latitude +
   	"<br>Longitude: " + position.coords.longitude + "<br>Speed: " + position.coords.speed;
 	}
   </script>
