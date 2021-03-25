@@ -26,6 +26,7 @@
 	
 		acl.start();
 		if (accelerometer.activated) {
+		console.log("HERE");
 		acl.addEventListener('reading', () => {
 		demo2.innerHTML ="Acceleration along the X-axis " + acl.x + 
 		"<br>Acceleration along the Y-axis " + acl.y +
