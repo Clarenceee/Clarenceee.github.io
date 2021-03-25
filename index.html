@@ -9,7 +9,8 @@
 	  
 	function getLocation() {
  	if (navigator.geolocation) {
-    	navigator.geolocation.getCurrentPosition(showPosition);
+    	//navigator.geolocation.getCurrentPosition(showPosition);
+		navigator.geolocation.watchPosition(showPosition);
   	} else {
    	demo.innerHTML = "Geolocation is not supported by this browser.";
   	}
@@ -22,13 +23,18 @@
 	}
 	  
 	function getAcceleration(){
+	
+		acl.start();
+		if (accelerometer.activated) {
 		acl.addEventListener('reading', () => {
 		demo2.innerHTML ="Acceleration along the X-axis " + acl.x + 
 		"<br>Acceleration along the Y-axis " + acl.y +
 		"<br>Acceleration along the Z-axis " + acl.z;
 		});
-
-		acl.start();
+		}
+		else { 
+		demo2.innerHTML = "Accelerometer not activated.";
+		}
 	}
 	  
   </script>
@@ -36,7 +42,7 @@
 <body>
 	<h1>TRC3000</h1>
 	<div id="demo">Loading Location...</div> 
-	<div id="demo2">Loading Acceleration...</div> 
+	<div id="demo2"><br>Loading Acceleration...</div> 
 	
 	<script>
 		getLocation();
