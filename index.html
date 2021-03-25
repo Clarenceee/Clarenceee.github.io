@@ -33,7 +33,21 @@
 		"<br>Acceleration along the Z-axis " + acl.z;
 		});
 		acl.start();
-		
+	}
+	navigator.connection.addEventListener('change', logNetworkInfo);
+
+	function logNetworkInfo() {	
+	
+		console.log('         type: ' + navigator.connection.type);
+		console.log('     downlink: ' + navigator.connection.downlink + ' Mb/s');
+		console.log('          rtt: ' + navigator.connection.rtt + ' ms');
+		console.log('  downlinkMax: ' + navigator.connection.downlinkMax + ' Mb/s');
+		console.log('effectiveType: ' + navigator.connection.effectiveType);
+		console.log('     saveData: ' + navigator.connection.saveData);
+		console.log(window.navigator);
+		console.log('');
+	
+	
 	}
 	  
   </script>
@@ -46,6 +60,7 @@
 	<script>
 		getLocation();
 		getAcceleration();
+		logNetworkInfo();
 	</script>
 </body>
 </html>
