@@ -23,9 +23,9 @@
 	  
 	function getAcceleration(){
 		acl.addEventListener('reading', () => {
-		demo2.innerHTML ="Acceleration along the X-axis " + acl.x;
-		demo2.innerHTML ="Acceleration along the Y-axis " + acl.y;
-		demo2.innerHTML ="Acceleration along the Z-axis " + acl.z;
+		demo2.innerHTML ="Acceleration along the X-axis " + acl.x + 
+		"<br>Acceleration along the Y-axis " + acl.y +
+		"<br>Acceleration along the Z-axis " + acl.z;
 		});
 
 		acl.start();
