@@ -23,8 +23,6 @@
 	}
 	  
 	function getAcceleration(){
-	
-		acl.start();
 		
 		acl.addEventListener('reading', () => {
 		y.innerHTML ="Acceleration along the X-axis " + acl.x + 
@@ -32,6 +30,7 @@
 		"<br>Acceleration along the Z-axis " + acl.z;
 		});
 		
+		acl.start();
 		 
 		//demo2.innerHTML = "Accelerometer not activated.";
 		}
@@ -45,7 +44,7 @@
 	<div id="demo2">Loading Acceleration...</div> 
 	
 	<script>
-		//getLocation();
+		getLocation();
 		getAcceleration();
 	</script>
 </body>
