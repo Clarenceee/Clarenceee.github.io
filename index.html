@@ -8,6 +8,27 @@
 	var y = document.getElementById("demo2");
 	var acl = new Accelerometer({frequency:60});
 	  
+	var clientId    = "my_mqtt_js_client";
+	var server ="outstanding-engineer.cloudmqtt.com";
+	var mqtt_port = 443;
+	var mqtt_destname = "Learning";
+	var mqtt_msg = " Hello Champ" ;
+	var client = new Paho.MQTT.Client(server, mqtt_port, clientId);
+	
+	function init () {
+    		client.connect({
+        	userName: "odzguzja",
+        	password: "XIC7binxmQ8e",
+        	onSuccess: createDevice
+    		});
+	}
+	
+	function createDevice () {
+		message = new Paho.MQTT.Message(mqtt_msg);
+  		message.destinationName = mqtt_destname;
+  		client.send(message);
+	}
+
 	function getLocation() {
  	if (navigator.geolocation) {
     	navigator.geolocation.getCurrentPosition(showPosition);
@@ -80,7 +101,8 @@
 		//getAcceleration();
 		logNetworkInfo();
 		//handleOrientation();
-		getGyroscope();
+		//getGyroscope();
+		init();
 	</script>
 </body>
 </html>
