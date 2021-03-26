@@ -57,7 +57,7 @@
 		"<br>Acceleration along the Y-axis " + acl.y +
 		"<br>Acceleration along the Z-axis " + acl.z;
 		});
-		acc_msg = " acl.x , acl.y, acl.z";
+		acc_msg =  acl.x , acl.y, acl.z;
 		message = new Paho.MQTT.Message(acc_msg);
   		message.destinationName = "Acceleration";
   		client.send(message);
