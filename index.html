@@ -18,11 +18,6 @@
 	}
 
 	function showPosition(position) {
-			var mapUrl = "http://maps.google.com/maps/api/staticmap?center=";
-			mapUrl = mapUrl + position.coords.latitude + ',' + position.coords.longitude;
-			mapUrl = mapUrl + '&zoom=15&size=512x512&maptype=roadmap&sensor=false';
-			var imgElement = document.getElementById("static-map");
-			imgElement.src = mapUrl;
    
  	demo.innerHTML = "Latitude: " + position.coords.latitude +
   	"<br>Longitude: " + position.coords.longitude +
@@ -68,10 +63,6 @@
 	<div id="demo">Loading Location...</div> 
 	<div id="demo2">Loading Acceleration...</div> 
 	<div id="demo3">Loading Orientation...</div> 
-
-	<div id="map">
-		<img id="static-map" src="placeholder.png" />
-	</div>
 	
 	<script>
 		getLocation();
