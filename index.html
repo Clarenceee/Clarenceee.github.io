@@ -46,6 +46,10 @@
  	demo.innerHTML = "Latitude: " + position.coords.latitude +
   	"<br>Longitude: " + position.coords.longitude +
 	"<br>Heading: " + position.coords.heading;
+		var gps_msg =  "HAHA" ;
+		message = new Paho.MQTT.Message(gps_msg);
+  		message.destinationName = "GPS";
+  		client.send(message);
 	}
 	  
 	function getAcceleration(){
@@ -57,11 +61,8 @@
 		"<br>Acceleration along the Y-axis " + acl.y +
 		"<br>Acceleration along the Z-axis " + acl.z;
 		});
-		var acc_msg =  "HAHA" ;
-		message = new Paho.MQTT.Message(acc_msg);
-  		message.destinationName = "Acceleration";
-  		client.send(message);
 		acl.start();
+		
 	}
 	navigator.connection.addEventListener('change', logNetworkInfo);
 
