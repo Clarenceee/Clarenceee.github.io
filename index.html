@@ -24,6 +24,7 @@
 	}
 	
 	function createDevice () {
+		console.log("HI");
 		client.subscribe(mqtt_destname);
 		message = new Paho.MQTT.Message(mqtt_msg);
   		message.destinationName = mqtt_destname;
