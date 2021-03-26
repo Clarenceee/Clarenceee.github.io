@@ -55,6 +55,16 @@
 		"<br> beta : " + event.beta + "<br> gamma : " + event.gamma ;
 	}
 	
+	let gyroscope = new Gyroscope({frequency: 60});
+	
+	function getGyroscope() {
+		gyroscope.addEventListener('reading', e => {
+  		demo4.innerHTML = "Gyroscope X-axis " + gyroscope.x +
+  		"<br>Gyroscope Y-axis " + gyroscope.y  + "<br>Gyroscope Z-axis " + gyroscope.z;
+		});
+		gyroscope.start();
+	}
+	
   </script>
 </head>
 <body>
@@ -62,12 +72,15 @@
 	<div id="demo">Loading Location...</div> 
 	<div id="demo2">Loading Acceleration...</div> 
 	<div id="demo3">Loading Orientation...</div> 
+	<div id="demo4">Loading Gyroscope...</div> 
+
 	
 	<script>
 		getLocation();
 		getAcceleration();
 		logNetworkInfo();
 		handleOrientation();
+		getGyroscope();
 	</script>
 </body>
 </html>
