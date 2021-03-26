@@ -52,7 +52,7 @@
 	function getOrientation() {
 		if (window.DeviceOrientationEvent) {
 			window.addEventListener('deviceorientation', deviceOrientationHandler, false);
-			document.getElementById("").innerText = "Supported!";
+			document.getElementById("demo").innerText = "Supported!";
 		}
 	}
 	
