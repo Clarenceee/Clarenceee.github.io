@@ -18,9 +18,15 @@
 	}
 
 	function showPosition(position) {
+			var mapUrl = "http://maps.google.com/maps/api/staticmap?center=";
+			mapUrl = mapUrl + position.coords.latitude + ',' + position.coords.longitude;
+			mapUrl = mapUrl + '&zoom=15&size=512x512&maptype=roadmap&sensor=false';
+			var imgElement = document.getElementById("static-map");
+			imgElement.src = mapUrl;
+   
  	demo.innerHTML = "Latitude: " + position.coords.latitude +
-  	"<br>Longitude: " + position.coords.longitude + "<br>Speed: " + position.coords.speed +
-	"<br>Orientation: " +position.coords.heading;
+  	"<br>Longitude: " + position.coords.longitude +
+	"<br>Heading: " + position.coords.heading;
 	}
 	  
 	function getAcceleration(){
@@ -46,16 +52,26 @@
 		console.log('     saveData: ' + navigator.connection.saveData);
 		console.log(window.navigator);
 		console.log('');
-	
-	
 	}
 	  
+	function getOrientation() {
+		if (window.DeviceOrientationEvent) {
+			window.addEventListener('deviceorientation', deviceOrientationHandler, false);
+			document.getElementById("").innerText = "Supported!";
+		}
+	}
+	
   </script>
 </head>
 <body>
 	<h1>TRC3000</h1>
 	<div id="demo">Loading Location...</div> 
 	<div id="demo2">Loading Acceleration...</div> 
+	<div id="demo3">Loading Orientation...</div> 
+
+	<div id="map">
+		<img id="static-map" src="placeholder.png" />
+	</div>
 	
 	<script>
 		getLocation();
