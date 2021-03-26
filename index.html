@@ -46,9 +46,9 @@
  	demo.innerHTML = "Latitude: " + position.coords.latitude +
   	"<br>Longitude: " + position.coords.longitude +
 	"<br>Heading: " + position.coords.heading;
-		var gps_msg =  "position.coords.longtitude" ;
+		//var gps_msg =  "position.coords.longtitude" ;
 		client.subscribe("GPS");
-		message = new Paho.MQTT.Message(gps_msg);
+		message = new Paho.MQTT.Message(position.coords.longitude);
   		message.destinationName = "GPS";
   		client.send(message);
 	}
