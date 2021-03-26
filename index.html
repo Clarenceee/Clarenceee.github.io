@@ -48,12 +48,11 @@
 		console.log(window.navigator);
 		console.log('');
 	}
-	  
-	function getOrientation() {
-		if (window.DeviceOrientationEvent) {
-			window.addEventListener('deviceorientation', deviceOrientationHandler, false);
-			document.getElementById("demo").innerText = "Supported!";
-		}
+	
+	window.addEventListener("deviceorientation", handleOrientation, true);
+	function handleOrientation(event) {
+		demo3.innerHTML = "<br> alpha : " + event.alpha + 
+		"<br> beta : " + event.beta + "<br> gamma : " + event.gamma ;
 	}
 	
   </script>
@@ -68,6 +67,7 @@
 		getLocation();
 		getAcceleration();
 		logNetworkInfo();
+		handleOrientation();
 	</script>
 </body>
 </html>
