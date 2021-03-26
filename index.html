@@ -55,10 +55,10 @@
 		"<br> beta : " + event.beta + "<br> gamma : " + event.gamma ;
 	}
 	
-	let gyroscope = new Gyroscope({frequency: 60});
+	var gyroscope = new Gyroscope({frequency: 60});
 	
 	function getGyroscope() {
-		gyroscope.addEventListener('reading', e => {
+		gyroscope.addEventListener('reading', ( ) => {
   		demo4.innerHTML = "Gyroscope X-axis " + gyroscope.x +
   		"<br>Gyroscope Y-axis " + gyroscope.y  + "<br>Gyroscope Z-axis " + gyroscope.z;
 		});
