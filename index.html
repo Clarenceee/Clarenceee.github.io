@@ -31,6 +31,27 @@
 		//message = new Paho.MQTT.Message(mqtt_msg);
   		//message.destinationName = mqtt_destname;
   		//client.send(message);
+		if (navigator.geolocation) {
+    			navigator.geolocation.getCurrentPosition(showPosition);
+			//navigator.geolocation.watchPosition(showPosition);
+  		} else {
+   			demo.innerHTML = "Geolocation is not supported by this browser.";
+  		}
+		}
+
+		function showPosition(position) {
+   
+ 		demo.innerHTML = "Latitude: " + position.coords.latitude +
+  		"<br>Longitude: " + position.coords.longitude +
+		"<br>Heading: " + position.coords.heading;
+		//var gps_msg =  "position.coords.longtitude" ;
+		console.log("SEND THIS");
+		mqtt_msg = position.coords.longtitude;
+		client.subscribe(mqtt_destname);
+		message = new Paho.MQTT.Message(mqtt_msg);
+  		message.destinationName = mqtt_destname;
+  		client.send(message);
+		}
 	}
 
 	function getLocation() {
@@ -109,7 +130,7 @@
 
 	
 	<script>
-		getLocation();
+		//getLocation();
 		getAcceleration();
 		//logNetworkInfo();
 		//handleOrientation();
