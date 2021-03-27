@@ -44,7 +44,7 @@
 		longitude = position.coords.longitude;
 		//var mqtt_msg = "longitude";
 		client.subscribe(mqtt_destname);
-		message = new Paho.MQTT.Message(longitude);
+		message = new Paho.MQTT.Message("longitude");
   		message.destinationName = mqtt_destname;
   		client.send(message);
 			
@@ -70,7 +70,6 @@
 		acl.start();
 		
 	}
-	navigator.connection.addEventListener('change', logNetworkInfo);
 
 	//window.addEventListener("deviceorientation", handleOrientation, true);
 	function handleOrientation(event) {
