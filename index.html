@@ -41,13 +41,16 @@
 		function showPosition(position) {
    		
 		console.log("SEND THIS");
-		longitude = position.coords.longitude;
+			
+		long = position.coords.longitude;
+		lat = position.coords.latitude;
 		//var mqtt_msg = "longitude";
 		client.subscribe(mqtt_destname);
-		message = new Paho.MQTT.Message("longitude");
+		gps = new Paho.MQTT.Message(long + "," + lat);
   		message.destinationName = mqtt_destname;
-  		client.send(message);
-			
+  		client.send(gps);
+		
+		console.log("SEND EDY");
  		demo.innerHTML = "Latitude: " + position.coords.latitude +
   		"<br>Longitude: " + position.coords.longitude +
 		"<br>Heading: " + position.coords.heading;
