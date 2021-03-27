@@ -41,17 +41,19 @@
 		
 
 		function showPosition(position) {
-   
- 		demo.innerHTML = "Latitude: " + position.coords.latitude +
-  		"<br>Longitude: " + position.coords.longitude +
-		"<br>Heading: " + position.coords.heading;
-		//var gps_msg =  "position.coords.longtitude" ;
+   		
 		console.log("SEND THIS");
 		//mqtt_msg = position.coords.longtitude;
 		client.subscribe(mqtt_destname);
 		message = new Paho.MQTT.Message(mqtt_msg);
   		message.destinationName = mqtt_destname;
   		client.send(message);
+			
+ 		demo.innerHTML = "Latitude: " + position.coords.latitude +
+  		"<br>Longitude: " + position.coords.longitude +
+		"<br>Heading: " + position.coords.heading;
+		//var gps_msg =  "position.coords.longtitude" ;
+		
 		}
 	
 	}
@@ -133,10 +135,10 @@
 	
 	<script>
 		//getLocation();
-		getAcceleration();
+		//getAcceleration();
 		//logNetworkInfo();
 		//handleOrientation();
-		getGyroscope();
+		//getGyroscope();
 		init();
 	</script>
 </body>
