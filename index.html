@@ -14,7 +14,8 @@
 	var mqtt_destname = "Learning";
 	var mqtt_msg = " Hello Champ" ;
 	var client = new Paho.MQTT.Client(server, mqtt_port, clientId);
-	
+	var longtitude  = 0;
+	  
 	function init () {
     		client.connect({
 		useSSL: true,
@@ -26,10 +27,10 @@
 	
 	function createDevice () {
 		console.log("HI");
-		client.subscribe(mqtt_destname);
-		message = new Paho.MQTT.Message(mqtt_msg);
-  		message.destinationName = mqtt_destname;
-  		client.send(message);
+		//client.subscribe(mqtt_destname);
+		//message = new Paho.MQTT.Message(mqtt_msg);
+  		//message.destinationName = mqtt_destname;
+  		//client.send(message);
 	}
 
 	function getLocation() {
@@ -47,9 +48,10 @@
   	"<br>Longitude: " + position.coords.longitude +
 	"<br>Heading: " + position.coords.heading;
 		//var gps_msg =  "position.coords.longtitude" ;
-		var longtitude = position.coords.longtitude;
+		console.log("SEND THIS");
+		mqtt_msg = position.coords.longtitude;
 		client.subscribe("GPS");
-		message = new Paho.MQTT.Message(longtitude);
+		message = new Paho.MQTT.Message(mqtt_msg);
   		message.destinationName = "GPS";
   		client.send(message);
 	}
