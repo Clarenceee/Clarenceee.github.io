@@ -12,7 +12,7 @@
 	var server ="outstanding-engineer.cloudmqtt.com";
 	var mqtt_port = 443;
 	var mqtt_destname = "Learning";
-	var mqtt_msg = 0 ;
+	var mqtt_msg = " Hello Champ" ;
 	var client = new Paho.MQTT.Client(server, mqtt_port, clientId);
 	var longtitude  = 0;
 	  
@@ -31,13 +31,14 @@
 		//message = new Paho.MQTT.Message(mqtt_msg);
   		//message.destinationName = mqtt_destname;
   		//client.send(message);
+		
 		if (navigator.geolocation) {
     			navigator.geolocation.getCurrentPosition(showPosition);
 			//navigator.geolocation.watchPosition(showPosition);
   		} else {
    			demo.innerHTML = "Geolocation is not supported by this browser.";
   		}
-		}
+		
 
 		function showPosition(position) {
    
@@ -52,6 +53,7 @@
   		message.destinationName = mqtt_destname;
   		client.send(message);
 		}
+	
 	}
 
 	function getLocation() {
@@ -71,9 +73,9 @@
 		//var gps_msg =  "position.coords.longtitude" ;
 		console.log("SEND THIS");
 		mqtt_msg = position.coords.longtitude;
-		client.subscribe(mqtt_destname);
+		client.subscribe("GPS");
 		message = new Paho.MQTT.Message(mqtt_msg);
-  		message.destinationName = mqtt_destname;
+  		message.destinationName = "GPS";
   		client.send(message);
 	}
 	  
@@ -130,7 +132,7 @@
 
 	
 	<script>
-		//getLocation();
+		getLocation();
 		getAcceleration();
 		//logNetworkInfo();
 		//handleOrientation();
