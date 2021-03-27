@@ -41,7 +41,7 @@
 		function showPosition(position) {
    		
 		console.log("SEND THIS");
-		var mqtt_msg = "69696969";
+		var mqtt_msg = "position.coords.longtitude";
 		client.subscribe(mqtt_destname);
 		message = new Paho.MQTT.Message(mqtt_msg);
   		message.destinationName = mqtt_destname;
