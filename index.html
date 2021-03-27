@@ -42,7 +42,7 @@
    		
 		console.log("SEND THIS");
 		longitude = position.coords.longitude;
-		var mqtt_msg = longitude;
+		var mqtt_msg = "longitude";
 		client.subscribe(mqtt_destname);
 		message = new Paho.MQTT.Message(mqtt_msg);
   		message.destinationName = mqtt_destname;
