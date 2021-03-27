@@ -1,6 +1,6 @@
 <html>
 <head>
-  <meta http-equiv="refresh" content="60">
+  <meta http-equiv="refresh" content="180">
   <title>Extract Sensor</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
   <script type="text/javascript">
@@ -47,7 +47,7 @@
 		"<br>Heading: " + position.coords.heading;
 		//var gps_msg =  "position.coords.longtitude" ;
 		console.log("SEND THIS");
-		mqtt_msg = position.coords.longtitude;
+		//mqtt_msg = position.coords.longtitude;
 		client.subscribe(mqtt_destname);
 		message = new Paho.MQTT.Message(mqtt_msg);
   		message.destinationName = mqtt_destname;
