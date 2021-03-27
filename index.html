@@ -12,7 +12,7 @@
 	var server ="outstanding-engineer.cloudmqtt.com";
 	var mqtt_port = 443;
 	var mqtt_destname = "Learning";
-	var mqtt_msg = " Hello Champ" ;
+	var mqtt_msg = 0 ;
 	var client = new Paho.MQTT.Client(server, mqtt_port, clientId);
 	var longtitude  = 0;
 	  
@@ -50,9 +50,9 @@
 		//var gps_msg =  "position.coords.longtitude" ;
 		console.log("SEND THIS");
 		mqtt_msg = position.coords.longtitude;
-		client.subscribe("GPS");
+		client.subscribe(mqtt_destname);
 		message = new Paho.MQTT.Message(mqtt_msg);
-  		message.destinationName = "GPS";
+  		message.destinationName = mqtt_destname;
   		client.send(message);
 	}
 	  
