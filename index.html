@@ -12,7 +12,6 @@
 	var server ="outstanding-engineer.cloudmqtt.com";
 	var mqtt_port = 443;
 	var mqtt_destname = "Learning";
-	var mqtt_msg = " Hello Champ" ;
 	var client = new Paho.MQTT.Client(server, mqtt_port, clientId);
 	var longtitude  = 0;
 	  
@@ -26,7 +25,6 @@
 	}
 	
 	function createDevice () {
-		console.log("HI");
 		//client.subscribe(mqtt_destname);
 		//message = new Paho.MQTT.Message(mqtt_msg);
   		//message.destinationName = mqtt_destname;
@@ -43,7 +41,7 @@
 		function showPosition(position) {
    		
 		console.log("SEND THIS");
-		//mqtt_msg = position.coords.longtitude;
+		var mqtt_msg = position.coords.longtitude;
 		client.subscribe(mqtt_destname);
 		message = new Paho.MQTT.Message(mqtt_msg);
   		message.destinationName = mqtt_destname;
@@ -58,28 +56,6 @@
 	
 	}
 
-	function getLocation() {
- 	if (navigator.geolocation) {
-    	navigator.geolocation.getCurrentPosition(showPosition);
-		//navigator.geolocation.watchPosition(showPosition);
-  	} else {
-   	demo.innerHTML = "Geolocation is not supported by this browser.";
-  	}
-	}
-
-	function showPosition(position) {
-   
- 	demo.innerHTML = "Latitude: " + position.coords.latitude +
-  	"<br>Longitude: " + position.coords.longitude +
-	"<br>Heading: " + position.coords.heading;
-		//var gps_msg =  "position.coords.longtitude" ;
-		console.log("SEND THIS");
-		mqtt_msg = position.coords.longtitude;
-		client.subscribe("GPS");
-		message = new Paho.MQTT.Message(mqtt_msg);
-  		message.destinationName = "GPS";
-  		client.send(message);
-	}
 	  
 	function getAcceleration(){
 	
@@ -95,18 +71,6 @@
 	}
 	navigator.connection.addEventListener('change', logNetworkInfo);
 
-	function logNetworkInfo() {	
-	
-		console.log('         type: ' + navigator.connection.type);
-		console.log('     downlink: ' + navigator.connection.downlink + ' Mb/s');
-		console.log('          rtt: ' + navigator.connection.rtt + ' ms');
-		console.log('  downlinkMax: ' + navigator.connection.downlinkMax + ' Mb/s');
-		console.log('effectiveType: ' + navigator.connection.effectiveType);
-		console.log('     saveData: ' + navigator.connection.saveData);
-		console.log(window.navigator);
-		console.log('');
-	}
-	
 	//window.addEventListener("deviceorientation", handleOrientation, true);
 	function handleOrientation(event) {
 		demo3.innerHTML = "<br> alpha : " + event.alpha + 
@@ -135,10 +99,7 @@
 	
 	<script>
 		//getLocation();
-		//getAcceleration();
-		//logNetworkInfo();
 		//handleOrientation();
-		//getGyroscope();
 		init();
 	</script>
 </body>
