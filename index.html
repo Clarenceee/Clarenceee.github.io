@@ -7,7 +7,7 @@
 	var x = document.getElementById("demo");
 	var y = document.getElementById("demo2");
 	var acl = new Accelerometer({frequency:60});
-	  
+	var rch = document.getElementById("reach");
 	var clientId = "client_id";
 	var server ="outstanding-engineer.cloudmqtt.com";
 	var mqtt_port = 443;
@@ -97,6 +97,10 @@
 	<div id="demo2">Loading Acceleration...</div> 
 	<div id="demo3">Loading Orientation...</div> 
 	<div id="demo4">Loading Gyroscope...</div> 
+	
+	<p><br> CLICK HERE WHEN ARRIVE </p>
+	button onclick="getElementById("reach").innerHTML=test>">REACH</button>
+	<div id="reach">Click here when arrive</div> 
 
 	
 	<script>
