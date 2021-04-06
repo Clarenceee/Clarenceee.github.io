@@ -7,7 +7,6 @@
 	var x = document.getElementById("demo");
 	var y = document.getElementById("demo2");
 	var acl = new Accelerometer({frequency:60});
-	var rch = document.getElementById("reach");
 	var clientId = "client_id";
 	var server ="outstanding-engineer.cloudmqtt.com";
 	var mqtt_port = 443;
@@ -89,6 +88,11 @@
 		gyroscope.start();
 	}
 	
+	function reachFunction(){
+		navigator.geolocation.getCurrentPosition();
+		reach.innerHTML = "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
+	}
+	  
   </script>
 </head>
 <body>
@@ -99,7 +103,7 @@
 	<div id="demo4">Loading Gyroscope...</div> 
 	
 	<p><br> CLICK HERE WHEN ARRIVE </p>
-	<button onclick="getElementById('reach').innerHTML="123"">REACH</button>
+	<button onclick="reachFunction()">REACH</button>
 	<div id="reach"><br>Waiting Response</div> 
 
 	
