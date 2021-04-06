@@ -89,7 +89,7 @@
 	}
 	
 	function reachFunction(){
-		navigator.geolocation.getCurrentPosition();
+		navigator.geolocation.getCurrentPosition(position);
 		reach.innerHTML = "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
 	}
 	  
