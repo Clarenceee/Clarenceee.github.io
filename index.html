@@ -97,7 +97,14 @@
   		}
 		
 		function showReach(position) {		
-			//console.log("SEND EDY");
+
+			rchlong = position.coords.longitude;
+			rchlat = position.coords.latitude;
+			client.subscribe("REACH");
+			gps = new Paho.MQTT.Message(rchlong + "," + rchlat);
+  			gps.destinationName = "REACH";
+  			client.send(gps);
+			console.log("SEND REACH");
  			reach.innerHTML =  " <br> REACH  = Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
 		}
 	
