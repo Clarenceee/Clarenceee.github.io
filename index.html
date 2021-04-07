@@ -88,8 +88,8 @@
 		gyroscope.start();
 	}
 	
-	function reachFunction(){
-		navigator.geolocation.getCurrentPosition(position);
+	function reachFunction(position){
+		navigator.geolocation.getCurrentPosition();
 		reach.innerHTML = "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
 	}
 	  
