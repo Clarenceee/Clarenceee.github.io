@@ -121,6 +121,7 @@
 		strt = new Paho.MQTT.Message(date + "/" + mon + "/" + year);
   		strt.destinationName = "START WORK LO";
   		client.send(strt);
+		
 	}
 	  
 	  
@@ -130,7 +131,8 @@
 	<h1>TRC3000</h1>
 	<p><br> CLICK HERE TO START WORK </p>
 	<button onclick="startWork()">START WORK</button>
-
+	<div id = "start"></div>
+ 
 	<div id="demo">Loading Location...</div> 
 	<div id="demo2">Loading Acceleration...</div> 
 	<div id="demo3">Loading Orientation...</div> 
