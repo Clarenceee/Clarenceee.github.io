@@ -120,7 +120,8 @@
 		strt = new Paho.MQTT.Message(date + "/" + mon + "/" + year);
   		strt.destinationName = "START WORK LO";
   		client.send(strt);
-		start.innerHTML = date.concat(mon,year);
+		const numbersAsString = `${date}${mon}`;
+		start.innerHTML = numberAsString;
 		
 	}
 	  
