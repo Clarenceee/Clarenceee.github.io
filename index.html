@@ -88,9 +88,19 @@
 		gyroscope.start();
 	}
 	
-	function reachFunction(position){
-		navigator.geolocation.getCurrentPosition();
-		reach.innerHTML = "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
+	function reachFunction(){
+		if (navigator.geolocation) {
+    			navigator.geolocation.getCurrentPosition(showReach);
+			//navigator.geolocation.watchPosition(showPosition);
+  		} else {
+   			reach.innerHTML = "Geolocation is not supported by this browser.";
+  		}
+		
+		function showReach(position) {		
+			//console.log("SEND EDY");
+ 			reach.innerHTML =  " REACH  = Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
+		}
+	
 	}
 	  
   </script>
