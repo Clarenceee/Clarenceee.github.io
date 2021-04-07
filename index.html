@@ -114,14 +114,12 @@
 		var d = new Date() ;
 		date = d.getDate() ;
 		mon = d.getMonth();
-		year = d.getYear();
 		
 		client.subscribe("START WORK LO");
 		strt = new Paho.MQTT.Message(date + "/" + mon + "/" + year);
   		strt.destinationName = "START WORK LO";
   		client.send(strt);
-		const numbersAsString = `${date}${mon}`;
-		start.innerHTML = numberAsString;
+		start.innerHTML = date + "/" + mon;
 		
 	}
 	  
