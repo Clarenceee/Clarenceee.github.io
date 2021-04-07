@@ -116,7 +116,7 @@
 		mon = d.getMonth();
 		
 		client.subscribe("START WORK LO");
-		strt = new Paho.MQTT.Message(date + "/" + mon + "/" + year);
+		strt = new Paho.MQTT.Message(date + "/" + mon );
   		strt.destinationName = "START WORK LO";
   		client.send(strt);
 		start.innerHTML = date + "/" + mon;
