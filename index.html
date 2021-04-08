@@ -145,13 +145,16 @@
 </head>
 <body>
 	<h1>TRC3000</h1>
-	<p>CLICK HERE TO START WORK </p>
-	<div id = "start">Waiting To Start Work</div>
+
+	<div id = "start">CLICK HERE TO START WORK</div>
 	<button onclick="startWork()">START WORK</button>
 	
-	<br>
-	<br>
-	
+	<div id="reach"> CLICK HERE WHEN ARRIVE </div> 
+	<button onclick="reachFunction()">REACH</button>
+		
+	<div id="ebye"> CLICK HERE END WORK </div> 
+	<button onclick="endWork()">OFFLINE</button>
+		
 	<button onclick="showData()">Show Data</button>
  	<div id = "data" style="display : none">
 		<div id="demo"><br>Loading Location...</div> 
@@ -159,15 +162,6 @@
 		<div id="demo3">Loading Orientation...</div> 
 		<div id="demo4">Loading Gyroscope...</div> 
 	</div>
-	
-	<p><br> CLICK HERE WHEN ARRIVE </p>
-	<div id="reach">Waiting Response</div> 
-	<button onclick="reachFunction()">REACH</button>
-	
-	<p><br> CLICK HERE END WORK </p>
-	<div id="ebye">.</div> 
-	<button onclick="endWork()">OFFLINE</button>
-	
 
 	
 	<script>
