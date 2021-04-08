@@ -122,6 +122,15 @@
 		start.innerHTML = date + "/" + mon;
 		
 	}
+	
+	function showData() {
+  		var x = document.getElementById("data");
+  		if (x.style.display === "none") {
+   			 x.style.display = "block";
+  		} else {
+    			x.style.display = "none";
+  		}
+	}
 	  
 	  
   </script>
@@ -131,11 +140,14 @@
 	<p><br> CLICK HERE TO START WORK </p>
 	<button onclick="startWork()">START WORK</button>
 	<div id = "start">Waiting To Start Work <br> </div>
- 
-	<div id="demo">Loading Location...</div> 
-	<div id="demo2">Loading Acceleration...</div> 
-	<div id="demo3">Loading Orientation...</div> 
-	<div id="demo4">Loading Gyroscope...</div> 
+	
+	<button onclick="showData()">Show Data</button>
+ 	<div id = "data">
+		<div id="demo"><br>Loading Location...</div> 
+		<div id="demo2">Loading Acceleration...</div> 
+		<div id="demo3">Loading Orientation...</div> 
+		<div id="demo4">Loading Gyroscope...</div> 
+	</div>
 	
 	<p><br> CLICK HERE WHEN ARRIVE </p>
 	<button onclick="reachFunction()">REACH</button>
