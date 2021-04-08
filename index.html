@@ -136,9 +136,8 @@
 	}
 	 
 	function endWork() {
-  		client.subscribe("END WORK LO");
 		end = new Paho.MQTT.Message("1");
-  		end.destinationName = "START WORK LO";
+  		end.destinationName = "END WORK LO";
   		client.send(end);
 		ebye.innerHTML = "SEE YOU TOMORROW";
 		document.getElementById("reach").style.display = "none";
