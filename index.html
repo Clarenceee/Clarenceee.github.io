@@ -138,11 +138,11 @@
 <body>
 	<h1>TRC3000</h1>
 	<p><br> CLICK HERE TO START WORK </p>
-	<button onclick="startWork()">START WORK</button>
 	<div id = "start">Waiting To Start Work <br> </div>
+	<button onclick="startWork()">START WORK</button>
 	
 	<button onclick="showData()">Show Data</button>
- 	<div id = "data" display = "none">
+ 	<div id = "data" style="display : none">
 		<div id="demo"><br>Loading Location...</div> 
 		<div id="demo2">Loading Acceleration...</div> 
 		<div id="demo3">Loading Orientation...</div> 
@@ -150,8 +150,9 @@
 	</div>
 	
 	<p><br> CLICK HERE WHEN ARRIVE </p>
-	<button onclick="reachFunction()">REACH</button>
 	<div id="reach"><br>Waiting Response</div> 
+	<button onclick="reachFunction()">REACH</button>
+	
 
 	
 	<script>
