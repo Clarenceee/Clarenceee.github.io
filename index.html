@@ -38,19 +38,14 @@
 		
 
 		function showPosition(position) {
-   		
-			console.log("SEND THIS");
-			
+   					
 			long = position.coords.longitude;
 			lat = position.coords.latitude;
-			//var mqtt_msg = "longitude";
 			client.subscribe(mqtt_destname);
 			gps = new Paho.MQTT.Message(long + "," + lat);
   			gps.destinationName = mqtt_destname;
   			client.send(gps);
-		
-			console.log("SEND EDY");
- 			demo.innerHTML = "Latitude: " + position.coords.latitude +
+			demo.innerHTML = "Latitude: " + position.coords.latitude +
   			"<br>Longitude: " + position.coords.longitude +
 			"<br>Heading: " + position.coords.heading;
 		
@@ -140,7 +135,6 @@
   		client.send(end);
 		ebye.innerHTML = "SEE YOU TOMORROW";
 		document.getElementById("reach").style.display = "none";
-		document.getElementById("start").style.display = "block";		
 	}
 	  
 	  
