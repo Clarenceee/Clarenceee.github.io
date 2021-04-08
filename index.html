@@ -151,20 +151,22 @@
 <body>
 	<h1>TRC3000</h1>
 
-	<div id = "start">CLICK HERE TO START WORK
-	<button onclick="startWork()">START WORK</button>
+	<div id = "start">
+		<p>CLICK HERE TO START WORK</p>
+		<button onclick="startWork()">START WORK</button>
 	</div>
 	
-	<div id="reach"  style="display : none"><p> CLICK HERE WHEN ARRIVE <p>
+	<div id="reach"  style="display : none"><p> CLICK HERE WHEN ARRIVE </p>
 		<button onclick="reachFunction()" style="margin:5px;">REACH</button>
 		<button onclick="showData()" style="margin:5px;">Show Data</button>
 	</div> 
 	
-	<div id="ebye"  style="display : none"> CLICK HERE END WORK 
-	<button onclick="endWork()">OFFLINE</button>
+	<div id="ebye"  style="display : none">
+		<p> CLICK HERE END WORK </p>
+		<button onclick="endWork()">OFFLINE</button>
 	</div> 
 	
- 	<div id = "data" style="display : none; [B]padding:20px 0;[/B]">
+ 	<div id = "data" style="display : none; margin-top: 15px; ">
 		<div id="demo"><br>Loading Location...</div> 
 		<div id="demo2">Loading Acceleration...</div> 
 		<div id="demo3">Loading Orientation...</div> 
