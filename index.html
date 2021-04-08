@@ -131,6 +131,14 @@
     			x.style.display = "none";
   		}
 	}
+	 
+	function endWork() {
+  		client.subscribe("END WORK LO");
+		end = new Paho.MQTT.Message("1");
+  		end.destinationName = "START WORK LO";
+  		client.send(end);
+		ebye.innerHTML = "SEE YOU TOMORROW";
+	}
 	  
 	  
   </script>
@@ -140,6 +148,9 @@
 	<p><br> CLICK HERE TO START WORK </p>
 	<div id = "start">Waiting To Start Work <br> </div>
 	<button onclick="startWork()">START WORK</button>
+	
+	<br>
+	<br>
 	
 	<button onclick="showData()">Show Data</button>
  	<div id = "data" style="display : none">
@@ -152,6 +163,10 @@
 	<p><br> CLICK HERE WHEN ARRIVE </p>
 	<div id="reach"><br>Waiting Response</div> 
 	<button onclick="reachFunction()">REACH</button>
+	
+	<p><br> CLICK HERE END WORK </p>
+	<div id="ebye">.</div> 
+	<button onclick="endWork()">OFFLINE</button>
 	
 
 	
