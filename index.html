@@ -115,9 +115,8 @@
 		date = d.getDate() ;
 		mon = d.getMonth();
 		
-		client.subscribe("START WORK LO");
 		strt = new Paho.MQTT.Message(date + "/" + mon );
-  		strt.destinationName = "START WORK LO";
+  		strt.destinationName = "STARTWORKLO";
   		client.send(strt);
 		start.innerHTML = "WORK STARTED" ;
 		alert("WELCOME BACK TO WORK");
