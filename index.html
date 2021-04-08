@@ -104,7 +104,7 @@
 			gps = new Paho.MQTT.Message(rchlong + "," + rchlat);
   			gps.destinationName = "REACH";
   			client.send(gps);
- 			reach.innerHTML =  " <br> REACH  = Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
+ 			alert("ALERT SENT TO CONTROL CENTER");
 		}
 	
 	}
@@ -119,8 +119,10 @@
 		strt = new Paho.MQTT.Message(date + "/" + mon );
   		strt.destinationName = "START WORK LO";
   		client.send(strt);
-		start.innerHTML = date + "/" + mon;
-		
+		start.innerHTML = "WORK STARTED" ;
+		alert("WELCOME BACK TO WORK");
+		document.getElementById("reach").style.display = "block";
+		document.getElementById("ebye").style.display = "block";
 	}
 	
 	function showData() {
@@ -149,14 +151,16 @@
 	<div id = "start">CLICK HERE TO START WORK</div>
 	<button onclick="startWork()">START WORK</button>
 	
-	<div id="reach"> CLICK HERE WHEN ARRIVE </div> 
+	
+	<div id="reach"  style="display : none"> CLICK HERE WHEN ARRIVE </div> 
 	<button onclick="reachFunction()">REACH</button>
-		
-	<div id="ebye"> CLICK HERE END WORK </div> 
+	
+	
+	<div id="ebye"  style="display : none"> CLICK HERE END WORK </div> 
 	<button onclick="endWork()">OFFLINE</button>
 		
 	<button onclick="showData()">Show Data</button>
- 	<div id = "data" style="display : none">
+ 	<div id = "data" style="display : none; [B]padding:20px 0;[/B]">
 		<div id="demo"><br>Loading Location...</div> 
 		<div id="demo2">Loading Acceleration...</div> 
 		<div id="demo3">Loading Orientation...</div> 
