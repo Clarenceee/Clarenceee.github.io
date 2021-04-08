@@ -115,7 +115,7 @@
 		date = d.getDate() ;
 		mon = d.getMonth();
 		
-		strt = new Paho.MQTT.Message(date + "/" + mon );
+		strt = new Paho.MQTT.Message(true);
   		strt.destinationName = "STARTWORKLO";
   		client.send(strt);
 		start.innerHTML = "WORK STARTED" ;
@@ -135,7 +135,7 @@
 	}
 	 
 	function endWork() {
-		end = new Paho.MQTT.Message("1");
+		end = new Paho.MQTT.Message(true);
   		end.destinationName = "ENDWORKLO";
   		client.send(end);
 		ebye.innerHTML = "SEE YOU TOMORROW";
