@@ -55,10 +55,10 @@
     function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
     }
+	  
 	function initGeolocation() {
-	 if (navigator && navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(successCallback, errorCallback,{maximumAge: 600000});
-				console.log("yo");
+	if (navigator && navigator.geolocation) {
+				navigator.geolocation.watchPosition(successCallback, errorCallback,{maximumAge: 600000});
 			} else {
 				console.log('Geolocation is not supported');
 			}
@@ -76,6 +76,7 @@
 		x = document.getElementById("test");
 		x.innerHTML = position.coords.latitude + ',' + position.coords.longitude;
 		}
+	  
 	function handleOrientation(event) {
 		console.log(event)
 		var absolute = event.absolute;
@@ -93,6 +94,7 @@
 		client.send(orient_message);
 		console.log("Orientation Published");
 	}
+	  
 	if(window.DeviceOrientationEvent){
 	  window.addEventListener("deviceorientation", handleOrientation, false);
 	}else{
@@ -159,9 +161,7 @@
 	
 	
 	<script>
-		//init();
-		window.setInterval(initGeolocation,1000);
-		window.clearInterval();
+
 	</script>
 </body>
 </html>
