@@ -57,7 +57,7 @@
     }
 	function initGeolocation() {
 	 if (navigator && navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+				navigator.geolocation.getCurrentPosition(successCallback, errorCallback,{maximumAge: 600000});
 				console.log("yo");
 			} else {
 				console.log('Geolocation is not supported');
@@ -141,53 +141,9 @@
 				alert("WRONG PASSWORD");
 		}
 		console.log(driver_id);
-		if (corr  ==1){
-			document.getElementById("start").style.display = "block";
-			document.getElementById("pass").style.display = "none";
-		}
-	}
-	
-	function startWork() {
-		
-		strt = new Paho.MQTT.Message("true");
-  		strt.destinationName = "STARTWORKLO" + driver_id;
-  		client.send(strt);
-		start.innerHTML = "WORK STARTED" ;
-		alert("WELCOME BACK TO WORK");
-		document.getElementById("reach").style.display = "block";
-		document.getElementById("ebye").style.display = "block";
-		document.getElementById("start").style.display = "none";
-	}
-	
-	function reachFunction(){
-		if (navigator.geolocation) {
-    			navigator.geolocation.getCurrentPosition(showReach);
-			//navigator.geolocation.watchPosition(showPosition);
-  		} else {
-   			reach.innerHTML = "Geolocation is not supported by this browser.";
-  		}
-		
-		function showReach(position) {		
 
-			rchlong = position.coords.longitude;
-			rchlat = position.coords.latitude;
-			gps = new Paho.MQTT.Message(driver_id + "," + rchlong + "," + rchlat);
-  			gps.destinationName = "REACH" + driver_id;
-  			client.send(gps);
- 			alert("ALERT SENT TO CONTROL CENTER");
 		}
 	
-	}	
-	
-	
-	
-	function endWork() {
-		end = new Paho.MQTT.Message("true");
-  		end.destinationName = "ENDWORKLO" + driver_id;
-  		client.send(end);
-		ebye.innerHTML = "SEE YOU TOMORROW";
-		document.getElementById("reach").style.display = "none";
-	}
 	
   </script>
 </head>
@@ -200,30 +156,17 @@
 	</form> 
 	</div>
 	
-	<div id = "start"  style="display : none">
-		<p>CLICK HERE TO START WORK</p>
-		<button onclick="startWork()">START WORK</button>
-	</div>
-	
-	<div id="reach"  style="display : none"><p> CLICK HERE WHEN ARRIVE </p>
-		<button onclick="reachFunction()" style="margin:5px;">REACH</button>
-	</div> 
-	
-	<div id="ebye"  style="display : none">
-		<p> CLICK HERE END WORK </p>
-		<button onclick="endWork()">OFFLINE</button>
-	</div> 
-	
-		<div id="test">Loading...</div>
-		<div id="test2">Orientation...</div>
-		<div id="test3">Acceleration...</div>
-		<div id="test4">Gyroscope...</div>
-	
+	<div id="test">Loading...</div>
+	<div id="test2">Orientation...</div>
+	<div id="test3">Acceleration...</div>
+	<div id="test4">Gyroscope...</div>
+
 	
 	
 	<script>
 		//init();
-		window.setInterval(initGeolocation,1000);
+		window.setInterval(initGeolocation,10);
+		window.clearInterval();
 	</script>
 </body>
 </html>
