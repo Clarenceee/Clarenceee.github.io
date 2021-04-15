@@ -149,12 +149,7 @@
 </head>
 <body>
 	<h1>FleetHub</h1>
-	<div id = "pass">
-	<form id="frm1" action="/action_page.php">
-	  Password: <input id="pw" type="password" name="password"><br>
-	  <input type="button" value="Enter" onclick="getDriverId()"></input>
-	</form> 
-	</div>
+
 	
 	<div id="test">Loading...</div>
 	<div id="test2">Orientation...</div>
@@ -165,7 +160,7 @@
 	
 	<script>
 		//init();
-		window.setInterval(initGeolocation,10);
+		window.setInterval(initGeolocation,1000);
 		window.clearInterval();
 	</script>
 </body>
