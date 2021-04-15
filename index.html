@@ -58,7 +58,7 @@
 	  
 	function initGeolocation() {
 	if (navigator && navigator.geolocation) {
-				navigator.geolocation.watchPosition(successCallback, errorCallback,{maximumAge: 600000});
+				navigator.geolocation.watchPosition(successCallback, errorCallback,{maximumAge: 600000}, {enableHighAccuracy: true});
 			} else {
 				console.log('Geolocation is not supported');
 			}
