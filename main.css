@@ -21,7 +21,9 @@
   font-weight: 300;
   padding: 0 calc(var(--size-bezel) * 3);
 }
-
+body {
+	background-color: #B9FFB2;
+}
 h1 { font-family: 'Enriqueta', arial, serif; line-height: 1.25; margin: 0 0 10px; font-size: 40px; font-weight: bold; }
 mark {
   background: var(--color-accent);
@@ -56,7 +58,10 @@ mark {
 .input {
   position: relative;
 }
-
+.image {
+	position:relative;
+	width:100%;
+}
  .input__field {
     box-sizing: border-box;
     display: block;
