@@ -21,7 +21,7 @@
   padding: 0 calc(var(--size-bezel) * 3);
 }
 body {
-	background-color: #B9FFB2;
+	background-color: #FFFFEB;
 }
 h1 { font-family: 'Enriqueta', arial, serif; line-height: 1.25; margin: 0 0 10px; font-size: 40px; font-weight: bold; }
 mark {
@@ -30,7 +30,18 @@ mark {
   font-weight: bold;
   padding: 0 0.2em;
 }
+.column {
+  float: left;
+  width: 30%;
+  padding: 5px;
+}
 
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 .card {
   background: var(--color-background);
   padding: calc(4 * var(--size-bezel));
