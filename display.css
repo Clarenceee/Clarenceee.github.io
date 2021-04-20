@@ -1,0 +1,34 @@
+@import url('https://rsms.me/inter/inter.css');
+
+:root {
+  --color-light: white;
+  --color-dark: #212121;
+  --color-signal: #FFCB33;
+  
+  --color-background: var(--color-light);
+  --color-text: var(--color-dark);
+  --color-accent: var(--color-signal);
+  
+  --size-bezel: .5rem;
+  --size-radius: 4px;
+  
+  line-height: 1.4;
+  
+  font-family: 'Inter', sans-serif;
+  font-size: calc(.6rem + .4vw);
+  color: var(--color-text);
+  background: var(--color-background);
+  font-weight: 300;
+  padding: 0 calc(var(--size-bezel) * 3);
+}
+h1 { font-family: 'Enriqueta', arial, serif; line-height: 1.25; margin: 0 0 10px; font-size: 40px; font-weight: bold; }
+mark {
+  background: var(--color-accent);
+  color: var(--color-text);
+  font-weight: bold;
+  padding: 0 0.2em;
+}
+
+.hidden {
+  display: none;
+}
