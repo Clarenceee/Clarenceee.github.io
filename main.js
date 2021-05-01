@@ -51,6 +51,7 @@ if (responseObject.errorCode !== 0) {
 }
 function compareName (name)
 {
+	console.log(name)
 	user_enter_name = document.getElementById("name").value;
 	if (user_enter_name == name)
 	{
@@ -61,10 +62,14 @@ function compareName (name)
 function onMessageArrived(message) {
 	if (message.destinationName == mqtt_username)
 	{
-		user_list = message.payloadString.split(",");
+		if (message.payloadString != "")
+		{
+			user_list = message.payloadString.split(",");
+		}
+		console.log(user_list);
 		//console.log("onMessageArrived:"+ found);
 	}
-	console.log("Something's here");
+	
 }
 function checkUser()
 {
@@ -82,4 +87,5 @@ function checkUser()
 		window.location.href = "display.html?username=" + user_enter_name;
 	}
 	console.log("found " + found);
+	console.log(user_list);
 }
