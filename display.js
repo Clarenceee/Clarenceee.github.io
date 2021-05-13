@@ -43,12 +43,9 @@ function dataProcessing(user_data)
 	{
 		const image = "https://img.icons8.com/android/24/000000/car.png";
 		const dest_image = "https://img.icons8.com/android/24/000000/home.png";
-		var mapProp= {
-			  center:new google.maps.LatLng(latitude,longitude),
-			  zoom:15,
-			};
-		
-		var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		var latLng = new google.maps.LatLng(latitude, longitude); //Makes a latlng
+      		var map = document.getElementByID("googleMap");
+		map.panTo(latLng); //Make map global
 		var markerOptions = {
 			position: new google.maps.LatLng(latitude,longitude),
 			icon: image,
