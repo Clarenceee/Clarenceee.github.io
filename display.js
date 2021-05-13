@@ -15,6 +15,7 @@ queryString = queryString.substring(1);
 var queries = queryString.split("=");
 var username = queries[1];
 console.log(username);
+
 //Example client = new Paho.MQTT.Client("m11.cloudmqtt.com", 32903, "web_" + parseInt(Math.random() * 100, 10));
 // set callback handlers
 client.onConnectionLost = onConnectionLost;
@@ -44,7 +45,7 @@ function dataProcessing(user_data)
 		const image = "https://img.icons8.com/android/24/000000/car.png";
 		const dest_image = "https://img.icons8.com/android/24/000000/home.png";
 		var latLng = new google.maps.LatLng(latitude, longitude); //Makes a latlng
-      		var map = document.getElementByID("googleMap");
+      	//map = new google.maps.Map(document.getElementById("googleMap"));
 		map.panTo(latLng); //Make map global
 		var markerOptions = {
 			position: new google.maps.LatLng(latitude,longitude),
