@@ -7,7 +7,7 @@ var location_array = [0,0];
 var mqtt_user_data = "user_data"
 var user_data = 0;
 // Create a client instance
-var client = new Paho.MQTT.Client(host, port,"client_id_receiver");
+var client = new Paho.MQTT.Client(host, port,"client_id_receiver" + Math.random());
 var found = 0;
 var user_list = 0;
 var queryString = decodeURIComponent(window.location.search);
