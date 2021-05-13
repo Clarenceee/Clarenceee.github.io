@@ -80,7 +80,7 @@ function onConnect() {
 // Once a connection has been made, make a subscription and send a message.
 	console.log("onConnect");
 	client.subscribe(mqtt_user_data);
-	window.setInterval(requestData(username),1000);
+	requestData(username);
 }
 
 function doFail(e){
@@ -109,4 +109,5 @@ function onMessageArrived(message) {
 		dataProcessing(user_data);
 	}	
 	console.log("Something's here");
+	requestData(username);
 }
