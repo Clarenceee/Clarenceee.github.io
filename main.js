@@ -14,7 +14,7 @@ var mqtt_username = "allusernames";
 var mqtt_user_data = "user_data"
 var user_data = 0;
 // Create a client instance
-var client = new Paho.MQTT.Client(host, port,"client_id");
+var client = new Paho.MQTT.Client(host, port,"client_id_receiver" + Math.random());
 var found = 0;
 var user_list = 0;
 //Example client = new Paho.MQTT.Client("m11.cloudmqtt.com", 32903, "web_" + parseInt(Math.random() * 100, 10));
