@@ -47,6 +47,7 @@ function dataProcessing(user_data)
 		var latLng = new google.maps.LatLng(latitude, longitude); //Makes a latlng
       	//map = new google.maps.Map(document.getElementById("googleMap"));
 		map.panTo(latLng); //Make map global
+		myMarker.setMap(null);
 		var markerOptions = {
 			position: new google.maps.LatLng(latitude,longitude),
 			icon: image,
