@@ -14,6 +14,7 @@ var queryString = decodeURIComponent(window.location.search);
 queryString = queryString.substring(1);
 var queries = queryString.split("=");
 var username = queries[1];
+var prevMarker;
 console.log(username);
 
 //Example client = new Paho.MQTT.Client("m11.cloudmqtt.com", 32903, "web_" + parseInt(Math.random() * 100, 10));
@@ -47,13 +48,17 @@ function dataProcessing(user_data)
 		var latLng = new google.maps.LatLng(latitude, longitude); //Makes a latlng
       	//map = new google.maps.Map(document.getElementById("googleMap"));
 		map.panTo(latLng); //Make map global
+		if (prevMarker != undefined)
+		{
+			prevMarker.setMap(null);
+		}
 		var markerOptions = {
 			position: new google.maps.LatLng(latitude,longitude),
 			icon: image,
 			map: map
 		}
-		var myMarker = new google.maps.Marker(null);
 		var myMarker = new google.maps.Marker(markerOptions);
+		prevMarker = myMarker;
 		var dest_markerOptions = {
 			position: new google.maps.LatLng(dest_lat,dest_long),
 			icon: dest_image,
